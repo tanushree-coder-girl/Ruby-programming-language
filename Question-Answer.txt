@@ -1,0 +1,425 @@
+======== Question-Answer ========
+
+1. What is Ruby? 
+    Ruby is an open-source object-oriented scripting language invented in the mid-90s by Yukihiro Matsumoto.
+
+2. Why Everything In Ruby is a Object? 
+    Every data type that we work with is a class and classes are objects. Even the Object class is an object. Strings, integers, floats, hashes, arrays, symbols, classes, modules, errors and more are all objects.
+
+3. How to get the class of variable in Ruby?
+    variableName.class
+
+4. What is not an object in Ruby? 
+    methods or Blocks are not objects
+
+5. What is the difference between compiled and interpreted programming languages? 
+    In a compiled language, the target machine directly translates the program. In an interpreted language, the source code is not directly translated by the target machine. Instead, a different program, aka the interpreter, reads and executes the code.
+
+6. What is the difference between client side and server side programming language? 
+    The client-side is used as the front end, where the user gets to see what we have browsed. The server-side is used as a back-end where data is processed and is not visible to the client user. On the client side, the user is allowed to access the code written after verifying the user's need.
+
+7. What do you mean by Variables? 
+    A variable is a name that Ruby associates with a particular object. For example: city = "indore" 
+
+8. What are variables in Ruby? 
+    Variables in Ruby is a object of class. 
+
+9. What Are Constants in Ruby? 
+    Constant is a type of variable which always starts with a capital letter.Constants are used for values that aren't supposed to change, but Ruby doesn't prevent you from changing them.
+    like: 
+        A = "I am Constant Variable" 
+
+10. How to define Variables In RUby? 
+    variableName = value 
+
+11. How to get memory Address of a variable in Ruby? 
+    variableName.object_id
+
+12. How many Types of Variables In RUby?
+    There Are five Types of Variables in Ruby 
+        1. Local Variable 
+        2. Class Variable 
+        3. Instance variable
+        4. Global Variable 
+        5. Constants 
+
+13. What is the difference between class Variable And Instance Variable?
+    The main difference is the behavior concerning inheritance: class variables are shared between a class and all its subclasses, while class instance variables only belong to one specific clas
+
+    @@classVariable 
+        Class Variable has class scope, static across all class instances
+    @instanceVariable 
+     Instance Varialbe has class object scope, value specific to object instance
+
+    Instance Variable => It is a variable whose value is instance-specific and now shared among instances.	
+    it declared with @
+
+    class Variable => It is a variable that defines a specific attribute or property for a class.
+    it declared with @@
+
+14. What is the scope of local Variable?
+    The scope of a local variable is within that block i.e. when we create a variable with in a method, it cannot be accessed outside that method.
+
+15. what is the disadvantage of Global Variable?
+    Global variables can be read or modified by any part of the program, making it difficult to remember or reason about every possible use. No Access Control or Constraint Checking — A global variable can be get or set by any part of the program, and any rules regarding its use can be easily broken or forgotten.
+
+16. What Happen when you reference an uninitialized local variable?
+    It will throw Error.
+
+17. What Happen when you reference an uninitialized Constant?
+    It will throw Error.
+
+18. What Happen when you reference an uninitialized instance variable?
+    It will return nil
+
+19. How many types of methods in Ruby?
+    there are 3 types of method in ruby 
+    1. method with no Arguements
+    2. method with Arguements
+    3. method with default Arguements
+
+20. How to pass default Arguements to method in ruby? 
+    def method_name(a = "apple") 
+        puts a
+    end
+    method_name
+
+    if you pass Arguements on Calling time then it will give priority to that value but if you don't pass value while calling then it will take default Arguements...
+
+21. When it is required to use return into a Ruby Method? 
+    Ruby methods ALWAYS return the evaluated result of the last line of the expression unless an explicit return comes before it. If you wanted to conditionally return a value you can use the return keyword.
+
+22. When it is not required to use return into a Ruby Method? 
+    if you want to return last expression or last line of code then do not need to write return keyword..
+
+23. What is a class in Ruby? 
+    Ruby is an ideal object-oriented programming language. A class is a blueprint from which objects are created. The object is also called as an instance of a class.
+
+24. What is an object in Ruby? 
+    Everything in Ruby occurs in the context of some object. The object at the top level is called "main". It's basically an instance of Object with the special property that any methods defined there are added as instance methods of Object (so they're available everywhere.
+
+25. How to define a Class in Ruby? 
+    class MyClassName 
+        all code goes here
+    end
+
+26. How to instantiate a class? 
+    myClassObj = MyClassName.new
+
+27. What is the difference between class methods and instance methods? 
+    In Ruby, a method provides functionality to an Object. A class method provides functionality to a class itself, while an instance method provides functionality to one instance of a class.
+
+    class SayHello
+        def self.from_the_class
+            "Hello, from a class method"
+        end
+
+        def from_an_instance
+            "Hello, from an instance method"
+        end
+    end
+
+28. What is the difference between instance method and instance variables? 
+    An instance variable is a type of variable which starts with an @ symbol. Example: @fruit.
+    The methods (that is, subroutines) that the object contains are called instance methods. 
+
+29. what is initialize method in Ruby class? 
+    The initialize method is part of the object-creation process in Ruby and it allows us to set the initial values for an object. Also called Constructor 
+
+30. How to invoke / call instance methods in ruby? 
+        objectOfClass = className.new 
+        objectOfClass.instance_method_name
+
+31. How to invoke / call class methods in ruby? 
+        ClassName.class_method_name
+
+32. Is it possible to define initialize method without passing any Arguement?
+    The initialize method is part of the object-creation process in Ruby and it allows us to set the initial values for an object. It will always return a new object so return keyword is not used inside initialize method. Defining initialize keyword is not necessary if our class doesn't require any arguments.
+
+33. What are getter methods in Ruby?
+    Getter methods are used to get the value of an instance variable.
+
+34. What are setter methods in Ruby? 
+    setter methods are used to set the value of an instance variable of some class.
+
+35. Does getter method requires an attribute to retrieve the value of an instance variable? 
+    No, It doesn’t require bcoz we only getting the value of instance variable already exist.
+
+36. Does setter method requires an attribute to update the values of an instance variable?
+    Yes, It require, bcoz we are trying to update the older value of Instance variable by some new value.
+
+37. Is it possible to get the value of an instance variable without have getter method in your class?
+    No it is not possible, bcoz we need getter method to retrieve the value of instance variable.however you can do it by some other method where you can use instance variable but you cannot use same name as instance variable name unless you have the getter method.
+
+38. Is it possible to set the new value of an instance variable without have setter method in your class?
+    Yes, it is possible but you must have some other name then your instance then you can update the value of that instance variable into any other method but if you are trying to updae the instance variable with same name as the instance variable name then it is not possible to update without setter method.
+
+39. What Are Accessors in Ruby? 
+    Accessors are a way to create getter an setter methods without explicitly defining them in class. Always use at the top of this methods inside a class.
+    To access and modify data, we use the attr_reader and attr_writer . attr_accessor is a shortcut method when you need both attr_reader and attr_writer .
+
+40. What is attr_reader? 
+    attr_reader automatically generates a getter method for each given attribute.
+    Using attr_reader , you can read the variable name outside the class scope.
+
+41. Can we Call attr_reader without any argument?
+    No, It doesn’t make sense. 
+
+41. Do we Need to put setter method even if we have used attr_reader Accessor in our ruby program?
+    Yes, if want to update value of instance variable.
+
+42. What is the advantage of usign attr_reader in your ruby program?
+    less lines of code 
+    DRY (don't repeat yourself)
+    
+43. CAn we use attr_reader outside the class?
+    No
+
+44. what is attr_writer?
+    attr_reader automatically generates a setter method for each given attribute.
+    Using attr_writer , you can update the instance variable name outside the class scope.
+
+45. can we call attr_writer without any argument?
+    No, It doesn’t make sense. 
+
+46. Do we need to put getter method even if we have used attr_writer Accessor in our program?
+    Yes, if want to get value of instance variable. if we defined attr_reader then no need of gettter method. 
+
+47. What is the advantage of usign attr_writer in your ruby program?
+    less line of code , Dry , shortcut for setter method 
+
+48. Can we call attr_writer outside the class?
+    No
+
+49. When we need to use attr_reader with attr_writer?
+    If we want to get data then use attr_reader
+    If WAnt to update them then use attr_writer 
+    If want to done both actions use both 
+
+50. Is it necessary to use both attr_reader and attr_writer both in a class? 
+    No, is not necessary , Is depends on your needs. 
+
+51. What is attr_accessor?
+    attr_accessor automatically generates a getter and setter method for each given attributes.
+
+52. Can We call attr_accessor without any argument? 
+    no, id doesn’t make sense 
+
+53. Do we need to put getter and setter method even if we have used attr_accessor method in our program?
+    No, 
+
+54. What is the advantage of usign attr_accessor in your ruby program? 
+    we can get instance variable value and also update then using these single methods. 
+
+55. Can we use attr_accessor outside the class?
+    no 
+
+56. What is Array? 
+    Arrays, Ruby arrays are ordered, integer-indexed collections of any object. Each element in an array is associated with and referred to by an index.
+
+57. How Ruby Arrays are different from other programming languages like c, c++, Java? 
+    In Ruby we can pas any data tpye in array. but in language like c etc we had to given specific type. In ruby array is also object.. 
+
+58. What is the maximum number of arguments you can send in an array? 
+    Two. 
+    one for length one default value 
+
+59. What should be the first argument while instantiating an array? 
+    Size of array 
+    arr = Array.new(10)
+
+60. How an array element can be accessed in Ruby? 
+    using index number or using loops 
+
+61. What Happen When you try to access an array element by negative index? 
+    start counting from last element of an array
+
+62. How you can instantiate an array of n elements? And wHat will be the default value of each elements in this case? 
+    arr = Array.new(10)
+    by Default value is nil
+
+63. How you can instantiate an array of n elements with some default value? 
+    arr = Array.new(5, "defaultValue")
+
+64. How can you list all the array method? 
+    arrayName.methods
+
+65. What do you mean by destructive and non-destructive array methods? 
+    Destructive Methods/ operations will modify the original array they were called on. 
+    Non Destructive Methods usually return a new array with the selected elements, but leave the original array unchanged. 
+
+66. Which array method is used for removing all the nil elements from an array? 
+    compact
+
+67. What does the include? array method? 
+    To check whether element is present in an array or not
+
+68. How to Delete An element from an array at any given index? 
+    delete_at(indexNumber)
+
+69. Which method is used to remove element from beginning of the array? 
+    shift
+
+70. Which method is used to insert element at the beginning of the array? 
+    unshift
+
+71. What are the similarities between hash and array? 
+    Arrays and Hashes are collections used to store and retrieve data. Arrays are ordered, integer-indexed collections of any object. ... Hashes enumerate their values in the order that the corresponding keys were inserted. Hashes have a default value that is returned when accessing keys that do not exist in the hash.
+
+72. What are the differences between arrays and hashes? 
+    Ruby's arrays and hashes are indexed collections. Both store collections of objects, accessible using a key. With arrays, the key is an integer, whereas hashes support any object as a key.
+
+73. Is it possible to insert duplicate keys into a hash?
+    No 
+
+74. What happen if we insert duplicate keys into hash? 
+    Overrides firstone with second one.
+
+75. Is it possible to insert duplicate values into hash? 
+    Yes
+
+76. What is the advantage of using hash over arrays? 
+    Searching over a data structure such as an array presents a linear time complexity of O(n). In other words, as the data structure increases in size, the search time increases in a linear fashion. Simply put, using a hash table is faster than searching through an array.
+
+77. In what cases hash is better than array?
+    In cases where I have a key for each element and I don't know the index of the element into an array, hashtables perform better than arrays (O(1) vs O(n)). The hash table search performs O(1) in the average case.
+
+78. Is there any type restriction to naming a hash key?
+    Do not use reserver keywords 
+
+79. What is better to use as hash key? String or Symbol? and Why?
+    Symbol hask kwy is better. 
+
+    Symbols in Ruby are basically "immutable strings" .. that means that they can not be changed, and it implies that the same symbol when referenced many times throughout your source code, is always stored as the same entity, e.g. has the same object id.
+
+    Strings on the other hand are mutable, they can be changed anytime. This implies that Ruby needs to store each string you mention throughout your source code in it's separate entity, e.g. if you have a string "name" multiple times mentioned in your source code, Ruby needs to store these all in separate String objects, because th
+
+80. What is the difference between eql? and equal? hash methods? 
+    In the Hash class, the eql? method it is used to test keys and value for equality. 
+    But equal? method is used to match key value with object_id. object_id must be same.
+
+81. What are the ways of getting a value from a hash?
+    hashName[:key] 
+    hashName["key"]
+    or
+    Using iterators and loop
+
+82. How you will know that a key exists in hash or not? 
+    myHash.key?(:myKey)
+
+83. What happen when you call sort method on a hash? What does is actually sort - keys or values?
+    Keys 
+
+84. While comparing two hashes , does the ordering of keys matters?
+    No
+
+85. What Are Loops in Ruby? 
+    Loops in Ruby are used to execute the same block of code a specified number of times. 
+
+86. What are Iterators in Ruby? 
+    “Iterators” is the object-oriented concept in Ruby. In more simple words, iterators are the methods which are supported by collections(Arrays, Hashes etc.). Collections are the objects which store a group of data members. Ruby iterators return all the elements of a collection one after another.
+    
+87. What is the difference between Loops and Iterators in Ruby?
+    Loops are useful when you need to tell your program to do something a certain number of times or to do something based on a certain condition. Iterators are useful for operating on a collection of objects, and even performing complex operations on the members of that collection.
+
+88. Is it possible For an iterator to be execute infinitely?
+    No 
+
+89. Is it possible to working with Iterators without any given set of data or collection objects?
+    No 
+    
+90. What is for loop?
+    Ruby for loop iterates over a specific range of numbers. Hence, for loop is used if a program has fixed number of iterations. Ruby for loop will execute once for each element in expression.
+
+91. why infinite execution of loop is avoidable for loop?
+    An infinite loop can be dangerous if it never blocks or sleeps. This can take the CPU to near 100% utilization and prevent other programs from running very well.
+
+92. What is the difference Between ..(double dot) and ...(triple dot) operator in for loop?
+    (two dots) means running from the starting value to the end value inclusively and if a range contains … (three dots) means it exclude the end value.18-Sept-2018
+
+93. Is It possible to iterate in for loop without range?
+    No 
+
+94. What is while loop in ruby and how its works?
+    While Loop is a type of loop that is used when you don't know exactly how many times the code will repeat. It's based on a condition, so the instruction inside the while should be either a boolean value (True/False) or an operator that returns a boolean (<,>,==, etc.).
+
+95. What is the difference between while loop and for loop?
+    The difference between for loop and while loop is that in for loop the number of iterations to be done is already known and is used to obtain a certain result whereas in while loop the command runs until a certain condition is reached and the statement is proved to be false.
+
+96. Is it possible that a while loop falls into infinite execution? If yes, in what cases?
+    Yes, When the statement is proved to be false.
+
+97. How will you prevent a while loop from infinite execution?
+    In Ruby, we use a break statement to break the execution of the loop in the program. It is mostly used in while loop, where value is printed till the condition, is true, then break statement terminates the loop. In examples, break statement used with if statement. By using break statement the execution will be stopped.
+
+98. Does While loop has it's own scope?
+    when while loop is executed - the variable i defined inside while is having local scope, where as the variable under (i > 3) follows the global variable, and doesn't refer to local scope
+    
+99. What is Map Iterators? 
+    Map is a Ruby method that you can use with Arrays, Hashes & Ranges. The main use for map is to TRANSFORM data. For example: Given an array of strings, you could go over every string & make every character UPPERCASE.
+
+100. What is the difference between map and map!?
+    map => Creates a new array containing the values returned by the block.
+    map! => Invokes the given block once for each element of self, replacing the element with the value returned by the block
+
+101. What is each iterator?
+    This iterator returns all the elements of an array or a hash. Each iterator returns each value one by one.
+
+102. What is the difference between each and map iterator?
+    Array#each executes the given block for each element of the array, then returns the array itself. Array#map also executes the given block for each element of the array, but returns a new array whose values are the return values of each iteration of the block.
+
+103. Is it possible to use each as each! ?
+    No 
+
+104. What are collect and select iterators?
+    Collect is same as map method used to iterator all element. 
+
+    Select =>  which returns a new array containing all elements of array for which the given block returns a true value. Return: A new array containing all elements of array for which the given block returns a true value.
+
+105. What is the difference between select and collect iterators?
+    Collect => “Creates a new array containing the values returned by the block.” 
+    Select => “Returns a new array containing all elements of the array for which the given block returns a true value.
+
+106. What is if statement?
+    If statement in Ruby is used to decide whether a certain statement or block of statements will be executed or not i.e if a certain condition is true then a block of statement is executed otherwise not.
+
+107. When we need to use else statement?
+    an else statement is an alternative statement that is executed if the result of a previous test condition evaluates to false.
+
+108. When we need to use elsif statement?
+    when if have to add multiple conditions 
+
+109. What happen if the condition in the if statement always returns true? 
+    always executes if block if it is true .
+
+110. What happen if the condition in the if statement always returns false? 
+    Then it will not executes if block if else block given then executes else block.
+
+111. What is case...when statement in Ruby?
+    case: It is similar to the switch keyword in another programming languages. It takes the variables that will be used by when keyword.
+    when: It is similar to the case keyword in another programming languages. It is used to match a single condition. There can be multiple when statements into a single case statement.
+    else: It is similar to the default keyword in another programming languages. It is optional and will execute when nothing matches.
+
+112. What is then keyword and when it is used with case...when?
+    when we want to write in one line 
+    for example 
+    case age 
+        when 1..12 then puts "Person is kid"
+    end
+
+113. How the comparision is done in case...when statement?
+    like 
+    age = 10 
+    case age 
+    when 1..10 
+        puts "code"
+    when 10..20 
+        puts "code" 
+    else 
+        puts "code"
+    end
+
+114. When it is required t0 use else keyword with case statement?
+    It is similar to the default keyword in another programming languages. It is optional and will execute when nothing matches
+
+=================================================================================================================================

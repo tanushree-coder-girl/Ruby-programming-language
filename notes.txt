@@ -1,0 +1,911 @@
+==================== Ruby =====================
+
+****=====  Index of Content =====***
+
+1. Introduction
+2. Puts and print 
+3. Comments
+4. A) Using Variables in Ruby 
+4. B) Types of Variables 
+5. String and its methods and String Concatenation & Interpolation in Ruby 
+6. Operators In Ruby 
+7. Getting Input from users
+8. Methods in Ruby
+9. Class And Object In Ruby
+10. Modules In Ruby
+11. Getter And Setter Method In Ruby
+12. Accessors in Ruby Class
+13. Array And Its Methods 
+14. Hash And Its Methods 
+15. Loop And Iterators In Ruby
+        loop => 1) for loop    2) while loop         3) until loop
+        Iterators => 1) each    2) map  3)each_with_index   4)select   5) collect  6) times 
+16. Break Next Statement Inside loops
+17. Conditional Statements  In Ruby 
+        1) if            2) if-else             3) if-elsif-else  
+        4)unless         5) unless-else        6)when..case       7) ternary operator
+18. Extras - some converting method string to integar etc...
+
+****=====  Index of Content End =====***
+
+1. ===== Introduction ==========
+    a. Ruby is a server side scripting language. 
+    b. Ruby is a interpreted language.
+    c. It Runs on Variety of platforms. 
+    d. Ruby Also known as pure object oriented programming language. 
+    e. Everything in Ruby is instance of some class. 
+    f. Class of an object in Ruby decided at run time. 
+
+2. ========== Puts and Print ============
+    Puts and print is used for priniting something in terminal 
+    The only difference between puts and print is that
+    puts => automatically prints a new line after the end of a sentence 
+    print => print doesn't prints a new line .
+
+    puts "hello world"
+    print "hello world" 
+
+3. ==========  Comments ============
+    Comments in your Ruby code are notes and annotations meant to be read by other programmers. The comments themselves are ignored by the Ruby interpreter, so the text inside the comments isn't subject to any restrictions
+
+    Single line comment starts with #
+        # i am sinle line cmt 
+
+    multiline line comments is write in block begin and end 
+        =begin
+            i 
+            am multiline 
+            comment in ruby
+        =end
+
+4. A. ======== Using variables In Ruby ========
+    Variable is a location in memory where you can store some values and that values can be changed over the time. 
+    
+    variableName = "value"
+
+    Data Types 
+        1. Integer / Numbers
+            num = 20
+        2. String 
+            msg = "Hello all"
+        3. Boolean
+            isLoggedIn = true
+            isLoggedIn = false
+        4. hashes 
+            data = { "Name" => "ABC", "age" => 20 }  
+                    OR  
+            data = { Name: 'ABC', age: 20 }  
+        5. arrays 
+            fruits = ["apple", "mango", "orange"];
+        6. Symbols 
+        7. nil
+            In Ruby, nil is a special value that denotes the absence of any value. Nil is an object of NilClass. nil is Ruby's way of referring to nothing or void
+
+    How to know data type of variable  
+        variableName.class 
+
+    Note => For every object, Ruby offers a method called object_id. You guessed it, this represents a random id for the specific object. This value is a reference of the address in memory where the object is store. Every object has a unique object id that will not change throughout the life of this object
+        variableName.object_id 
+
+    Note = > 
+    You can test all these stuff in Interactive Ruby Shell By typing irb in terminal
+    irb
+    or you can create file with rb extension like index.rb then run in terminal likee 
+    ruby index.rb
+    
+4. B. ======== Types of Variables ===========
+
+    There Are five Types of Variables in Ruby 
+        1. Local Variable 
+        2. Class Variable 
+        3. Instance variable
+        4. Global Variable 
+        5. Constants 
+
+    1. local Variable
+        It starts with small letter [a-z] or with underscore _ 
+        It has block scope where it is declared 
+        we can change value of variable..
+
+        language = "ruby" 
+
+    2. Class Variable 
+        Class Variable Always use inside class.. 
+        Always write class variable at the top before initialize..
+            @@classVariable = "Hello world"
+
+            class Students 
+                @@no_of_students = 0
+
+                def total_students
+                    @@no_of_students += 1
+                    puts "total student #{@@no_of_students}"
+                end
+            end
+
+    3. Instance Variable 
+        Instance Variable Always Use inside class 
+        @instanceVariable = "hello all"
+
+        class Details 
+            def initialize(name, age)
+                @name = name 
+                @age = age
+            end
+
+            def show 
+                puts "Name is #{@name} & age is #{@age}"
+            end
+        end
+
+    4. Global Variable 
+        global variables is defined globally using $ sign 
+        ruby says to avoid global Variable bcoz when we can value of global variable then it will create problem for whole application...
+
+            $globalVariable = "hello all"
+
+    5. Constant 
+        A constant is a type of variable which always starts with a capital letter. They can only be defined outside of methods, unless you use metaprogramming.
+        Constants are used for values that aren’t supposed to change, but Ruby doesn’t prevent you from changing them.
+
+            FRUIT = "mango"
+
+5. ======= String and its methods and String Concatenation & Interpolation in Ruby ==========
+    String 
+        A string is a sequence of one or more characters that may consist of letters, numbers, or symbols. Strings in Ruby are objects, and unlike other languages, strings are mutable, which means they can be changed in place instead of creating new strings. You'll use strings in almost every program you write.
+
+    Ways of writing a string 
+        string = 'Hello i am a string';
+        str2 = "hello i am string with double quote"
+        string3 = String.new("Another Way of writing a string using new keyword");
+
+        multilineString = " I am
+        Multiline
+        string";
+
+    String Concatenation and Interpolation 
+        We can use variable inside a string with the help of #{}  
+        " string sentence #{myVaraible} "
+    example 
+        greeting = "Good mornig all"; 
+        puts "Hello everyone #{greeting} "
+            Note => cannot use string Interpolation with single quote only use with "" double quote
+        
+    Escape characters
+        puts 'hello i am a \'programmer\'';
+        puts 'hello i am a "programmer"';
+
+    Methods of strings 
+        1. length 
+            mystirng.length
+        2. size
+            mystring.size 
+        3. upcase 
+            mystring.upcase
+        4. downcase 
+            mystirng.downcase
+        
+    For find all methods you can type 
+        stringName.methods 
+    
+    for count total methods 
+        stringName.methods.count 
+
+    pratical on index.rb file line no. 39 to 91
+
+6. ======== Operators In Ruby ===========
+    define
+        An operator is a symbol that represents an operation to be performed with one or more operand. Operators are the foundation of any programming language. Operators allow us to perform different kinds of operations on operands. 
+    
+    There are different types of operators used in Ruby as follows
+    1. Arithmetic Operators
+        These are used to perform arithmetic/mathematical operations on operands. as (+, -, *, /) adds two operands.
+    2. Comparison Operators 
+        comparison operator is a binary operator that takes two operands whose values are being compared.
+    3. Logical Operators
+        A logical operator is a symbol or word used to connect two or more expressions such that the value of the compound expression produced depends only on that of the original expressions and on the meaning of the operator. Common logical operators include AND, OR, and NOT.
+    4. Assignment Operators
+        In Ruby assignment operator is done using the equal operator "=". This is applicable both for variables and objects, as strings, floats, and integers are actually objects in Ruby, you're always assigning objects
+    5. Range Operators 
+        Ruby ranges depict a set of values with a beginning and an end. Values of a range can be numbers, characters, strings or objects. It is constructed using start_point..end_point, start_point…endpoint literals. It provides the flexibility to the code and reduce the size of code.
+
+        range = (1..10)                           it means 1 se 10 tk
+        range = (1..10)                           it means 1 se 9 tk
+
+    pratical on index.rb file line no. 93 to 126
+
+7. ======== Getting Input From Users In ===========
+    input
+        To make the program to interact with user, a program usually needs input from the users. To do this, we can use gets method. gets function takes input from the keyboard in string format and stores the value in the variables.
+
+        input = gets 
+            or 
+        input = gets.chomp 
+
+    pratical on index.rb file line no. 128 to 135
+
+8. ========== Methods In Ruby ============
+    Method
+        A method in Ruby is a set of expressions that returns a value. within a method you can organize your code into subroutines which can be easily invoked from other areas of their program.
+
+    Point To remember
+    1. A method in ruby starts with def keyword.
+    2. Method name always start with a lower case character, just like the way we define local variables in ruby.
+    3. Method always ends with end keyword.
+
+    syntax
+    defining a method
+        def method_name
+            puts "All Code goes inside the block"
+        end
+
+    Calling An method
+        method_name
+    
+    Types of Methods 
+    1. Method With Arguements 
+        def area(length, breath)
+            puts length * breath
+        end
+
+        area(20,10)
+
+    2. Method with no Arguements 
+        def area
+            length = 10
+            breath = 20
+            puts length * breath
+        end
+
+        area
+
+    3. Method with default Arguements
+         def area(length = 10, breath = 20)
+            puts length * breath
+        end
+
+        area
+
+    Return Statement 
+        By default Ruby Always return last line of code inside method so if we want to return last statement then we don't need to write return keyword...
+        But if We want to return something conditionally then we should use return statement
+
+        method my_method 
+            if true 
+                return "hello"
+            end
+        end
+
+    Pratical on index.rb file line no. 137 to 169
+
+9. ========== Class And Object In Ruby ============
+    Class 
+        A class can be considered as a blueprint of its object, or a class can also be thought as a container which contians the simimlar type of objects.
+        Classes contains the methods and attributes for its instances. These methods are used as behaviour of its objects. 
+    
+    Object 
+        An object is an instance of a class. And it can be considered as a real world entity.
+        Every object must these three properties 
+        1. unique identity 
+        2. State 
+        3. Behaviours
+
+        Other Than these Three properties objects can have other attributes as well...
+
+        1. How to Declare class 
+            class must declare with class keyword
+            class name mush be in PascalCase 
+
+            class ClassName 
+                # properties or variables etc
+                # methods
+            end
+
+        We can instantiate/ invoke object on class by new keyword like : 
+            classNameObj = ClassName.new
+
+        2. Add instance method in class  
+            class MyClass 
+                def my_method 
+                    puts "hello all"
+                end
+            end
+
+            myClassObj = MyClass.new 
+            myClassObj.my_method
+
+        3. Add Class Method In class 
+            class MyClass 
+                def self.my_method 
+                    puts "hello all"
+                end
+            end
+
+            myClassObj = MyClass.new 
+            MyClass.my_method
+
+        4. Constructor or initializer 
+            initializer is Constructor in Ruby class 
+            initialize is used to initialize variables for use...
+
+            class MyNewClass 
+                def initialize(name, age)
+                    @name = name
+                    @age = age
+                end
+            end
+
+            myNewClassObj = MyNewClass.new("abc", 20)
+        
+    Pratical on index.rb file line no. 171 to 209
+
+10. ========== Modules In Ruby ============
+    modules
+        A Module is a collection of methods, constants, and class variables. Modules are defined as a class, but with the module keyword not with class keyword.
+    Points to remember
+        1.You cannot inherit modules or you can’t create a subclass of a module.
+        2. Objects cannot be created from a module.
+        3. Modules are used as namespaces and as mixins.
+        4. All the classes are modules, but all the modules are not classes.
+        5. The class can use namespaces, but they cannot use mixins like modules.
+        6. The name of a module must start with a capital letter.
+
+        module Module_name
+            #module variable
+            Apple = 20;
+
+            # module method 
+            def Module_name.module_method
+                puts "Welcome to module method!"
+            end
+        end
+
+        Accessing 
+        puts Module_name::Apple
+        puts Module_name.module_method
+
+    Module include in class 
+    =======================
+         
+        module ShowModule
+            def show_something
+                puts "hello everyone, always stay happy"
+            end
+        end
+
+        class ShowClass
+            include ShowModule                              # include module 
+        end 
+
+        showClassObj = ShowClass.new    
+        showClassObj.show_something                     #module method call from class obj
+
+    Pratical on index.rb file line no. 211 to 243
+
+11. ========== Getter And Setter Method In Ruby  ============
+    Getter Method => A Getter Method is a method that gets a value of an instance variable.
+                    without getter method , you can not retrieve a value of an instance variable outside the class the instance variable is instantiated from...
+
+                Example =>
+                    class GetterMethod 
+                        def initialize(name)
+                            @name = name
+                        end
+
+                        def name                    //Getter Method
+                            puts @name
+                        end
+                    end
+
+                    GetterMethodObj = GetterMethod.new('namehere')
+                    GetterMethodObj.name
+
+    Setter Method => A setter is a method that sets a value of an instance variable.
+                    without a setter method, you can not assign a value to an instance variable outside its class...
+
+                 Example =>
+                    class SetterMethod 
+                        def initialize(name)
+                            @name = name
+                        end
+
+                        def name                    //Getter Method
+                            puts @name
+                        end
+
+                        def name=(name)
+                            @name=name
+                        end
+                    end
+
+                    SetterMethodObj = GetterMethod.new('namehere')
+                    SetterMethodObj.name = "Updated Value here"
+                    SetterMethodObj.name
+
+    Pratical on index.rb file line no. 245 to 266
+
+12. ========== Accessors in Ruby Class ============
+    Accessors 
+        Accessors are a way to create getter an setter methods without explicitly defining them in class. Always use at the top of this methods inside a class.
+    
+    Types Of Accessors 
+        There Are Three Types of Accessors ARe in A Ruby.
+            1. attr_reader
+            2. attr_writer 
+            3. attr_accessor 
+
+        attr_reader 
+            attr_reader automatically generates a getter method for each given attribute.
+                Things To remember.
+                1. You can only access those instance variable which you have passed to attr_reader.
+                2. you can only use attr_reader in a class. Using attr_reader outside a class will give you a NoMethodError.
+
+                example
+                    attr_reader :name, :age 
+            For pratical Example you can see index.rb file on line no.134 to 151
+
+        attr_writer
+            attr_writer automatically generates a setter method for each given attr_writer.
+                Things To remember.
+                1. You can only update the value of those instance variables which you have passed to attr_writer
+                2. You can only use attr_writer in a class. Using attr_writer outside a class will give you a NoMethodError. 
+
+                example
+                    attr_writer :name, :age
+            For pratical Example you can see index.rb file on line no.134 to 151
+
+        attr_accessor
+            attr_accessor automatically generates a getter and setter method for each given attributes.
+                example
+                    attr_accessor :name, :age
+
+    Pratical on index.rb file line no. 268 to 302
+
+13. ========== Array And Its Methods In Ruby  ============
+    Array 
+        Array in general is a data structure which can be defined as colletion of similar types of data.
+        But in Ruby an array is not a type , it is just an object of Array class. So an array in Ruby can have any type of data in it.
+        example 
+            myArray = [1, 2, 3, 4, "ruby", nil, true, false]
+
+        Array Features 
+            1. Arrays are ordered, Integer-indexed collections of any object. 
+            2. An array can have n number of elements and each element has an associated index with it.
+            3. An array element can be accessed via its index.
+                    fruits[0]                           for get element using index number
+                    fruits.at(0)                        another way to get element using index
+
+            4. Array index always starts with 0. So if an array have n elements then it's index ranges from 0 to n-1.
+                    myArray[0]                           for get first index
+                    myArray[myArray.size-1]              for get last index
+
+            5. In Ruby, a negative index is assumed to be relative to the end of the array  that is, an index of -1 indicates the last element of the array, -2 is the next to the last element in the array, and so on..
+                    myArray[-1]                          for get last index 
+                    myArray[-2]                          for get second last index 
+        
+        Ways To decalre an array 
+            1. First Way of declaring an array is using [] square brackets..
+                myArray = []                                    //Empty Array
+                myArray = [1, 2, 3, 4, 5, 6]                    //Array with some data
+
+            2. SEcond way of declaring an array is using new keyword 
+                myArray = Array.new                             //Empty Array
+                       or 
+                myArray = Array.new()                           //Empty Array
+
+                        syntax = Array.new(size, oneDefaultValue)
+                myArray = Array.new(10)                           //Array created with size
+                myArray = Array.new(5.4, "Ruby")                           //Array created with value
+                myarray = Array.new(10, 3+5)                   
+
+                also pass variable methods etc in value like 
+                def sum 
+                    10+10
+                end
+                myarray = Array.new(10, sum)                
+                    Note => Cannot pass more than 2 Arguements inside Array.new()    
+
+            How to Add , Delete elements in an array 
+                fruits = []                     //Create Empty array
+                fruits << "apple"              // Add Data at last index an array 
+                fruits << "mango" << "Grapes"              // Add Multiple Data at last of an array 
+                fruits.push("guava")           // Add Data at last an array 
+                fruits.unshift("bery")              // Add Data at first index of an array 
+                fruits.pop                      //remove last element of an array
+                fruits.shift                    //remove first element of an array
+                fruits.delete_at(2)             //remove element using index of an array
+                fruits.delete("apple")            //remove all element using element name of array
+                    Note => If there is no item available in method then it will return nil
+                
+            if we want to see items without nil element then 
+                fruits.compact.size             //for check size without nil element
+                fruits.compact                  //for see array without nil element
+
+    Array Methods 
+    =============
+        Array Methods Benefits
+        1. If you are asked to sort the array then you don't have to write logic from scratch to sort an array , you can simply use sort method. 
+        2. If you have to find whether an element exists into array or not, you can check it by using include? method , you don't have to write logic from scratch.
+
+        For know all present methods of an array you can use nameofArray.methods & it will return all available methods
+            arrayName.methods
+
+        For check total available method
+            arrayName.methods.count
+        
+        some Examples of methods=
+        1. shuffle
+            shuffle is used to random permutation of array elements  
+            arr.shuffle  
+        2, sort 
+            The Ruby sort method works by comparing elements of a collection using their <=> operator
+            arr.sort
+        3. reverse 
+            reverse is used to reverse array item 
+            arr.reverse 
+        4. include 
+            use to check whether element is present or not in an array
+            arr.include?("value")
+        5. flatten 
+            method which returns the one-dimensional flattening array.
+            arr.flatten
+        6. compact 
+            compact return without nil element 
+            arr.compact
+        7. product 
+            separate each element as an array 
+            arr.product
+        8. length 
+            return length of array element
+            arr.length
+        9. size 
+            return length of array element
+            arr.size
+        10. count 
+            return length of array element
+            arr.count
+
+        And many more like push , unshift , pop , shift, min, max, uniq etc...
+
+    Destructive And Non Destructive Methods 
+        Destructive Methods/ operations will modify the original array they were called on. 
+        Non Destructive Methods usually return a new array with the selected elements, but leave the original array unchanged. 
+
+        Non Destructive Method                Destructive Method 
+            arr.compact                            arr.compact!
+            arr.reverse                            arr.reverse!
+            arr.flatten                            arr.flatten!
+            arr.shuffle                            arr.shuffle!
+            arr.sort                               arr.sort!
+
+    Pratical on index.rb file line no. 304 to 372
+
+14. ========== Hash And Its Methods In Ruby  ============
+    Hash 
+        Hash is a data structure which store data in the form of key-value pairs. 
+        myHash = { 
+            firstName: "rv",
+            lastname: "shrma",
+            age: 1002
+        }
+
+        myHash[:firstName]                  //output rv
+
+    Ways To decalre an Hash 
+        myHash = {}                             //for initialize empty hash
+
+        1. Using symbol 
+            myHash = {
+                name: "xyz",
+                email: "xyz@example.com",
+                age: 108
+            } 
+
+            myHash[:name]                       //Access element using key
+                    or
+            myHash = {
+                :name => "xyz",
+                :email => "xyz@example.com",
+                :age => 108
+            }
+                
+            myHash[:name]                       //Access element using key
+
+        2. Using string 
+            myHash = { 
+                "name" => "xyz",
+                "email" => "xyz@example.com",
+                "age" => 108,
+                100 => "hundered" 
+            }
+            
+            myHash["name"]                         //Access element using key
+            myHash[100]                             //Access int elemet
+
+        3. using new keyword 
+            myHash = Hash.new
+        
+        4. Using Hash[]  
+            myHash = Hash[]
+
+        Note => Preferd Way to use Hash is using Symbol Hash first way
+
+        Add An update vAlue in an array 
+        myHash = {}                         //initialize empty hash 
+        myHash[:name] = "xyz"               //add key value pair in hash like this
+        myHash[:name] = "updated value here"               //update value in hash like this
+
+    Hash Methods 
+    ============
+        For know all present methods of a hash you can use nameOfHash.methods & it will return all available methods
+            hashName.methods
+
+        For check total available method
+            hashName.methods.count
+
+        Some Useful Methods of Hash Examples => 
+        1. empty?
+            checks whether the Hash array has any key-value pair. returns Boolean
+            hashName.empty?
+
+        2. eql?
+            checks whether the two Hash arrays are equal or not. 
+            h1 = {name: "xyz"}
+            h2 = {name: "xyz"}
+            h1.eql?h2
+
+        3. key?
+            check if specific key is present or not 
+            myHash.key?(:myKey)
+
+        4. fetch 
+            returns a value from the hash for the given key.
+            myHash.fetch(:myKey)
+
+        5. equal? 
+            checks whether the two Hash arrays are equal or object id is equal or not. 
+            a = {"name"=>"tanu"}
+            b = a
+            a.equal?b
+ 
+        6. compact 
+            returns the Hash after removing all the 'nil' value elements (if any) from the Hash.
+            myHash = {a: nil, b: nil, c: nil, d: "dog", e: "egg"}
+            myHash.compact                  output is => {:d=>"dog", :e=>"egg"} 
+
+
+    Destructive And Non Destructive Methods 
+        Destructive Methods/ operations will modify the original hash they were called on. 
+        Non Destructive Methods usually return a new hash with the selected elements, but leave the original hash unchanged. 
+
+        Non Destructive Method                Destructive Method 
+            myHash.compact                            myHash.compact!
+
+    Pratical on index.rb file line no. 374 to 449
+
+15. ========== Loop And Iterators In Ruby ============
+    Loop
+        1. A Loop is the repetitive execution of a chunk of code for a given amount of repetitions or until a certain condition is met.
+        2. Loop is an older concept and available to use in almost all the programming languages. 
+
+        Types of Loop
+
+        1. For loop 
+            For loop are used to loop over a collection of elements.
+            For loops always have a definite range since it's looping over a finite number of elements
+                example 
+                for i in 1..10                                      //Double dot means i <= 10
+                   puts "hello"
+                end
+                    or
+                for i in 1...10                                     //Triple dot means i < 10
+                   puts "hello"
+                end
+
+                pratical example on index.rb file line num => 321 to 337
+
+         2. While loop
+            It takes a parameter that evaluates as a Boolean, either true or false.
+            Once that parameter/expression becomes false, the while loop is not executed again, and the program continues after the while loop. 
+                example  
+                i = 1;
+                while i != 10
+                    puts "hello world"
+                    i +=1;
+                end 
+ 
+        3. Until loop
+            Until loop is just opposite of while loop 
+            When condition false it will executes... 
+                example 
+                j = 1;
+                until j > 10
+                    puts "hello until loop"
+                    j+=1
+                end
+
+    Iterators
+        Iterators are methods that naturally loop over a given set of data and allow you to operate on each element in the collection. 
+
+        Types of Iterators 
+        1. each 
+            The Each iterator returns all the elements of an enumerator object.
+                example 
+                arrayName.each { |v| puts "using each iterator #{v}"}
+
+        2. each_with_index
+            also return index number 
+                exapmle 
+                arrayName.each_with_index { |value, index| puts "value is #{value} n index number is #{index}" }
+        3. map 
+            The Map Method takes an enumerable object and a block , and runs the block for Each elements, outputting each returned value from the block. 
+            map method can be used in both Destructive (with ! operator) and Non-Destructive Manner.
+                example 
+                    numbers = (1..10).to_a 
+                    numbers.map { |num|  puts num + 2 }
+                        or 
+                    numbers.map do |num|
+                        puts num + 2
+                    end
+
+                    # if you want to modify original array then use ! operator with map method 
+                    numbers.map! { |n| n+2 }
+
+        4. select 
+            A new array containing all elements of array for which the given block returns a true value. Same as filter 
+                example 
+                    arrayName.select { |v| puts v > 3}
+
+        5. collect 
+            Same as map method 
+            arrayName.collect { |v| puts v }
+
+        6. times 
+            The times function in Ruby returns all the numbers from 0 to one less than the number itself. 
+                example
+                    10.times do 
+                        puts "hello world"
+                    end
+    Pratical on index.rb file line no. 451 to 541
+
+16. ========== Break Next Statement Inside loops ============
+    Break 
+        The Ruby break statement is used to terminate a loop. It is mostly used in while loop where value is printed till the condition is true, then break statement terminates the loop. The break statement is called from inside the loop.
+
+        example 
+            for j in 1..15 do
+                if j > 5 
+                    break
+                end
+            puts "hello break statement #{j}"
+            end
+    
+    Next 
+        The Ruby next statement is used to skip loop's next iteration. Once the next statement is executed, no further iteration will be performed. The next statement in Ruby is equivalent to continue statement in other languages.
+
+        example 
+            for i in 1..15 do
+                if i == 10 
+                    next
+                end
+            puts "hello next statment #{i}"
+            end
+
+    Pratical on index.rb file line no. 543 to 558
+
+17. ========== Conditional Statements  In Ruby ============
+    Conditional Blocks/Flows
+        Used to Make decisions to drive data oriented results..
+        Check condition and according to condition code will executes 
+
+        Types 
+        1. if 
+            digit = 18; 
+            if digit == 18 
+                puts "hello world"
+            end
+
+        2. if...else 
+            if true 
+                puts "code here"
+            else 
+                puts "code here"
+            end
+
+        3. if...elsif
+            if age >= 60
+                puts "you are senior citizen"
+            elsif age > 19 && age < 60
+                puts "you are adult"
+            elsif age > 13 && age < 20
+                puts "you are teenage"
+            else
+                puts "you are baby"
+            end
+
+        4. unless 
+            unless is opposite of if 
+            unless false 
+                puts "code executes"
+            end
+
+        5. unless...else 
+            unless age > 18 
+                puts "person can not vote
+            else
+                puts "person can vote"
+            end
+
+        6. when...case 
+            case age 
+            when 1..12
+                puts "Person is kid"
+            when 13..18 
+                puts "Person is teenage"
+            when 19..45 
+                puts "Person is adult"
+            when 46..90 
+                puts "Person is senior citizer"
+            else 
+                puts "i don't know"
+            end
+
+                    or with then keyword 2nd way
+            
+            case age 
+            when 1..12 then puts "Person is kid"
+            when 13..18 then puts "Person is teenage"
+            when 19..45 then puts "Person is adult"
+            when 46..90 then puts "Person is senior citizen"
+            else 
+                puts "i doesn’t know"
+            end            
+        
+        7. Ternary Statements
+            ternary statement is one liner if else 
+            condition  ? true : false          # condition ? true : false
+            example 
+                1 > 10 ? "one is greater " : "one is smaller"
+
+    Pratical on index.rb file line no. 560 to 624
+
+18. ========== Extras - Basic things must be know ============
+    1. convert a float number in integer number 
+        num = 10.15 
+        puts num.to_i 
+
+    2. convert integer number into float number 
+        num = 10 
+        puts num.to_f
+
+    3. converrt a string in integer number 
+        num = "10"
+        puts num.to_i 
+
+    4. convert range into array 
+        num = (1..10)
+        num.to_a
+
+    5. generate random number 
+        num = rand(100)
+        puts num
+
+    6. find num is even or odd
+        puts 10.odd? 
+        puts 10.even? 
+
+    7. if odd number then modular % always returns 1. 
+        puts 21 % 2
+
+    Pratical on index.rb file line no. 626 to 635
+
+    Official Ruby Website 
+        https://www.ruby-lang.org/en/
+
+    Official Ruby Documentation 
+        https://www.ruby-lang.org/en/documentation/
+
+    Learning reference Link for ruby 
+        https://www.tutorialspoint.com/ruby/index.htm
+
+==================================================== End ===========================================
